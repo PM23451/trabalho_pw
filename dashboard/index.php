@@ -2,18 +2,18 @@
 include_once("../connection/ligacao.php");
 
 if (isset($_POST["inputEmail"]) && isset($_POST["inputPassword"])) {
-    $email = $_POST["inputEmail"];
-    $password = $_POST["inputPassword"];
-  
-    $sql = "SELECT * FROM login WHERE username = '$email' AND password = '$password'";
-    $result = $conn->query($sql);
-    if ($result > 0) {
-      session_start();
-      $_SESSION["username"] = $email;
-      header("Location: ../dashboard/dashboard.php");
-    } else {
-      //echo "Utilizador ou password errados";
-    }
+  $email = $_POST["inputEmail"];
+  $password = $_POST["inputPassword"];
+
+  $sql = "SELECT username FROM login WHERE email = '$email' AND password = '$password'";
+  $result = $conn->query($sql);
+  if ($result > 0) {
+    session_start();
+    $_SESSION["username"] = $result->fetch_assoc()["username"];
+    header("Location: ../dashboard/dashboard.php");
+  } else {
+    //echo "Utilizador ou password errados";
+  }
 }
 ?>
 
