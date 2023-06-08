@@ -1,4 +1,21 @@
+<?php
+include_once("../connection/ligacao.php");
 
+if (isset($_POST["inputEmail"]) && isset($_POST["inputPassword"])) {
+    $email = $_POST["inputEmail"];
+    $password = $_POST["inputPassword"];
+  
+    $sql = "SELECT * FROM login WHERE username = '$email' AND password = '$password'";
+    $result = $conn->query($sql);
+    if ($result > 0) {
+      session_start();
+      $_SESSION["username"] = $email;
+      header("Location: ../dashboard/dashboard.php");
+    } else {
+      //echo "Utilizador ou password errados";
+    }
+}
+?>
 
 <!doctype html>
 <html lang="en">
@@ -20,11 +37,11 @@
     <link href="../assets/css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" method="post">
       <img class="mb-4" src="../assets/img/brasao-marinhas.webp" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Dashboard</h1>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required autofocus>
+      <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Lembrar-me
