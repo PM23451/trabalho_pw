@@ -15,7 +15,7 @@
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
-<div class="container">
+<div class="container login-form">
   <form class="form-signin">
       <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -35,30 +35,5 @@
 
   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>/* ============================================================
- * bootstrap-portfilter.js for Bootstrap v2.3.1
- * https://github.com/geedmo/portfilter
- * ============================================================*/
-!function(d){var c="portfilter";var b=function(e){this.$element=d(e);this.stuff=d("[data-tag]");this.target=this.$element.data("target")||""};
-    b.prototype.filter = function(g){
-    var e = [],
-        f = this.target;
-    d(this.stuff).each(function(){
-        if(d(this).data("tag") == f || f == "all"){
-            e.push(this)
-        }
-    });
-    d(this.stuff).not(e).hide();
-    d(e).show();
-};
-    var a=d.fn[c];d.fn[c]=function(e){return this.each(function(){var g=d(this),f=g.data(c);if(!f){g.data(c,(f=new b(this)))}if(e=="filter"){f.filter()}})};d.fn[c].defaults={};d.fn[c].Constructor=b;d.fn[c].noConflict=function(){d.fn[c]=a;return this};d(document).on("click.portfilter.data-api","[data-toggle^=portfilter]",function(f){d(this).portfilter("filter")})}(window.jQuery);
-	// filtro para mostrar apenas elementos com a classe 'locais'
-    var filterTarget = 'locais';
-    var $filterButton = $('[data-target="' + filterTarget + '"]');
-    $filterButton.trigger('click');
-    
-    // obter o filtro selecionado
-    var selectedFilter = $('[data-toggle="portfilter"].active').data('target');
-
-  </script>
+ 
 </body>

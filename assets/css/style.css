@@ -35,3 +35,8 @@ input[type="file"] {
   display: inline-block;
   margin-left: 10px;
 }
+.login-form{
+  width: 340px;
+  margin: 50px auto;
+  font-size: 15px;
+}
